@@ -4,7 +4,7 @@
   "description": "webpack+ES2015+react",
   "main": "app.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack-dev-server --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
