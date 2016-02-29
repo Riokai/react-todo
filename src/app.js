@@ -3,8 +3,9 @@ require('./style/index.css')
 
 import React from 'react'
 import { render } from 'react-dom'
+import TodoApp from './js/TodoApp'
 
 render(
-  <h1>Hello, World</h1>,
+  <TodoApp />,
   document.getElementById('app')
 )
