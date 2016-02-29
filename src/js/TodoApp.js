@@ -1,6 +1,17 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
+const data = [
+  {
+    title: 1,
+    checked: false
+  },
+  {
+    title: 2,
+    checked: true
+  }
+]
+
 class TodoApp extends React.Component {
   render() {
     return (
@@ -12,7 +23,9 @@ class TodoApp extends React.Component {
         <section className="main">
           <input className="toggle-all" type="checkbox" />
           <ul className="todo-list">
-            <TodoItem />
+            { data.map((item, index) => {
+              return <TodoItem todo={item} key={index} />
+            }) }
           </ul>
 
         </section>
