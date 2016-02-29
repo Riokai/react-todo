@@ -15,7 +15,7 @@ const data = [
 class TodoApp extends React.Component {
   render() {
     return (
-      <div>
+      <div className="todoapp">
         <header className="header">
           <h1>Todos</h1>
           <input className="new-todo" placeholder="Text here!" />
