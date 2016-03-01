@@ -1,5 +1,6 @@
 import React from 'react'
 import TodoItem from './TodoItem'
+import TodoFooter from './TodoFooter'
 
 const data = [
   {
@@ -29,6 +30,7 @@ class TodoApp extends React.Component {
           </ul>
 
         </section>
+        <TodoFooter />
       </div>
     )
   }

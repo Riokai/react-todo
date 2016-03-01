@@ -16,7 +16,6 @@ class TodoItem extends React.Component {
       </li>
     )
   }
-
 }
 
 export default TodoItem
