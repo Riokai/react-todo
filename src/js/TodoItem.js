@@ -1,17 +1,45 @@
 import React from 'react'
 
+import TodoModel from './TodoModel'
+
 class TodoItem extends React.Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      todo: this.props.todo
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.state = {
+      todo: nextProps.todo
+    }
+  }
+
+  handleChange(e) {
+
+    this.setState({
+      todo: Object.assign(this.state.todo, {checked: !this.state.todo.checked})
+    })
+
+    TodoModel.toggleTodo(this.state.todo)
+  }
+
   render() {
+    // console.log('checked', this.state.todo.checked);
+
     return (
-      <li>
+      <li className={this.state.todo.checked ? 'completed' : ''}>
         <div className="view">
           <input
             className="toggle"
             type="checkbox"
-            defaultChecked={this.props.todo.checked} />
+            onChange={this.handleChange.bind(this)}
+            checked={this.state.todo.checked} />
           <label>{this.props.todo.title}</label>
-          <button className="destroy"></button>
+          <button className="destroy" style={{cursor: 'pointer'}}></button>
         </div>
       </li>
     )
