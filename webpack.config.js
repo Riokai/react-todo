@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
+var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 module.exports = {
   entry: './src/app.js',
@@ -26,5 +27,8 @@ module.exports = {
       //   exclude: /node_modules/
       // }
     ]
-  }
+  },
+  plugins: [
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/webpack-dev-server/' })
+  ]
 };
