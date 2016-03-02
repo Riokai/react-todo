@@ -1,6 +1,10 @@
 class TodoModel {
   constructor() {
-    this.data = []
+    this.data = [{
+      id: Date.now(),
+      title: 'Hello React',
+      checked: false
+    }]
   }
 
   getTodo() {
