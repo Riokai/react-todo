@@ -19,6 +19,19 @@ class TodoModel {
     this.render = render
   }
 
+  removeTodo(id) {
+
+    this.data = this.data.filter(todo => {
+      if (todo.id === id) return false
+
+      return true
+    })
+
+    this.render.setState({
+      todos: this.data
+    })
+  }
+
   toggleTodo(todo) {
     for (let i=0; i<this.data.length; i++) {
       if (this.data[i].id === todo.id) {

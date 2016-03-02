@@ -18,6 +18,10 @@ class TodoItem extends React.Component {
     }
   }
 
+  removeTodo() {
+    TodoModel.removeTodo(this.props.todo.id)
+  }
+
   handleChange(e) {
 
     this.setState({
@@ -39,7 +43,7 @@ class TodoItem extends React.Component {
             onChange={this.handleChange.bind(this)}
             checked={this.state.todo.checked} />
           <label>{this.props.todo.title}</label>
-          <button className="destroy" style={{cursor: 'pointer'}}></button>
+          <button className="destroy" style={{cursor: 'pointer'}} onClick={this.removeTodo.bind(this)}></button>
         </div>
       </li>
     )
