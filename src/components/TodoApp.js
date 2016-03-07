@@ -1,24 +1,19 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import TodoItem from './TodoItem'
 import TodoFooter from './TodoFooter'
-import TodoModel from './TodoModel'
+// import TodoModel from './TodoModel'
 
 const ENTER_KEY = 13;
 const ALL_TODOS = 'all'
 const ACTIVE_TODOS = 'active'
 const COMPLETED_TODOS = 'completed'
 
-class TodoApp extends React.Component {
+class TodoApp extends Component {
   constructor(props) {
     super(props)
 
-    TodoModel.setRender(this)
-
     this.state = {
-      todos: TodoModel.getTodo(),
-      nowShowing: ALL_TODOS,
-			editing: null,
-			newTodo: ''
+      newTodo: ''
     }
   }
 
@@ -30,24 +25,30 @@ class TodoApp extends React.Component {
 
   handleNewTodo(e) {
     if (e.keyCode !== ENTER_KEY) return
+
     e.preventDefault()
 
-    TodoModel.addTodo({
-      title: this.state.newTodo,
-      checked: false,
-      id: Date.now()
-    })
+    // TodoModel.addTodo({
+    //   title: this.state.newTodo,
+    //   checked: false,
+    //   id: Date.now()
+    // })
+
+    this.props.actions.addTodo(this.state.newTodo)
 
     this.state.newTodo = ''
   }
 
   render() {
 
-    let number = this.state.todos.filter((todo) => {
+    const { todos, actons } = this.props
+
+
+    let number = todos.filter((todo) => {
       return todo.checked === false
     }).length
 
-    let completedCount = this.state.todos.filter((todo) => {
+    let completedCount = todos.filter((todo) => {
       return todo.checked === true
     }).length
 
@@ -67,7 +68,7 @@ class TodoApp extends React.Component {
         <section className="main">
           <input className="toggle-all" type="checkbox" />
           <ul className="todo-list">
-            { this.state.todos.map((item, index) => {
+            { todos.map((item, index) => {
                 return <TodoItem todo={item} key={index} />
             }) }
           </ul>
@@ -78,5 +79,10 @@ class TodoApp extends React.Component {
     )
   }
 }
+
+TodoApp.proTypes = {
+  todos: PropTypes.array.isRequired
+}
+
 
 export default TodoApp

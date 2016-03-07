@@ -1,16 +1,22 @@
 const initialState = [
   {
     id: Date.now(),
-    title: 'Hello React',
+    title: 'Hello Redux',
     checked: false
   }
 ]
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
-    case '111':
-
-      break;
+    case 'TODO_ADD':
+      return [
+        {
+          id: Date.now(),
+          checked: false,
+          title: action.text
+        },
+        ...state
+      ]
     default:
       return state
 

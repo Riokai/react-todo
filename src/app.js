@@ -3,7 +3,7 @@ require('./style/index.css')
 
 import React from 'react'
 import { render } from 'react-dom'
-import TodoApp from './components/TodoApp'
+import App from './container/App'
 import { Provider } from 'react-redux'
 import configureStore from './store/index'
 
@@ -11,7 +11,7 @@ const store = configureStore()
 
 render(
   <Provider store={store} >
-    <TodoApp />
+    <App />
   </Provider>,
   document.getElementById('app')
 )
