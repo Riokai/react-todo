@@ -43,15 +43,8 @@ class TodoApp extends Component {
 
     const { todos, actions } = this.props
 
-    let number = todos.filter((todo) => {
-      return todo.checked === false
-    }).length
-
-    let completedCount = todos.filter((todo) => {
-      return todo.checked === true
-    }).length
-
-    // console.log('count', completedCount)
+    let number = todos.filter((todo) => todo.checked === false).length
+    let completedCount = todos.filter((todo) => todo.checked === true).length
 
     return (
       <div className="todoapp">
@@ -80,7 +73,8 @@ class TodoApp extends Component {
 }
 
 TodoApp.proTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 
