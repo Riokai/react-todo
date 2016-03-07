@@ -1,18 +1,14 @@
 import React from 'react'
 
-import TodoModel from './TodoModel'
-
 class TodoFooter extends React.Component {
 
   constructor(props) {
     super(props)
   }
 
-  handleRemoveCompleted() {
-    TodoModel.removeCompleted()
-  }
-
   render() {
+    const { removeCompleted } = this.props
+    
     return (
       <footer className="footer">
         <span className="todo-count">
@@ -37,7 +33,7 @@ class TodoFooter extends React.Component {
           this.props.completedCount > 0 ? (
             <button
               className="clear-completed"
-              onClick={this.handleRemoveCompleted.bind(this)}>清除完成</button>
+              onClick={() => removeCompleted()}>清除完成</button>
           ) : ''
         }
       </footer>

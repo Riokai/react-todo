@@ -41,8 +41,7 @@ class TodoApp extends Component {
 
   render() {
 
-    const { todos, actons } = this.props
-
+    const { todos, actions } = this.props
 
     let number = todos.filter((todo) => {
       return todo.checked === false
@@ -68,13 +67,13 @@ class TodoApp extends Component {
         <section className="main">
           <input className="toggle-all" type="checkbox" />
           <ul className="todo-list">
-            { todos.map((item, index) => {
-                return <TodoItem todo={item} key={index} />
-            }) }
+            { todos.map((todo, index) =>
+                <TodoItem todo={todo} key={index} {...actions} />
+            )}
           </ul>
 
         </section>
-        <TodoFooter numbers={ number } completedCount={completedCount} />
+        <TodoFooter numbers={ number } completedCount={completedCount} removeCompleted={actions.removeCompletedTodos} />
       </div>
     )
   }
