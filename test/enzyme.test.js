@@ -1,7 +1,7 @@
 import React from 'react'
 import {shallow, mount, render} from 'enzyme'
 import {expect} from 'chai'
-import App from '../src/js/components/TodoApp'
+import App from '../src/container/App'
 
 describe('Enzyme Shallow', () => {
   it('App\' title should be Todos', () => {
