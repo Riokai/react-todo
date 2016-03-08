@@ -13,3 +13,7 @@ export function toggleTodo(id) {
 export function removeCompletedTodos() {
   return { type: 'TODOS_REMOVE_COMPLETE' }
 }
+
+export function completeAll() {
+  return { type: 'TODOS_COMPLETE_ALL' }
+}

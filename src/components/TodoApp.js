@@ -58,7 +58,7 @@ class TodoApp extends Component {
             value={this.state.newTodo} />
         </header>
         <section className="main">
-          <input className="toggle-all" type="checkbox" />
+          <input className="toggle-all" type="checkbox" onClick={() => actions.completeAll()} />
           <ul className="todo-list">
             { todos.map((todo, index) =>
                 <TodoItem todo={todo} key={index} {...actions} />

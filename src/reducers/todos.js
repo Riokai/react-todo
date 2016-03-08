@@ -21,5 +21,10 @@ export default createReducer({
   },
   'TODO_DELETE': (state, action) => state.filter(todo => todo.id !== action.id),
   'TODO_TOGGLE': (state, action) => state.map(todo => todo.id === action.id ? Object.assign({}, todo, {checked: !todo.checked}) : todo ),
-  'TODOS_REMOVE_COMPLETE': (state, action) => state.filter(todo => todo.checked === false)
+  'TODOS_REMOVE_COMPLETE': (state, action) => state.filter(todo => todo.checked === false),
+  'TODOS_COMPLETE_ALL': (state, action) => state.map(todo => {
+    todo.checked = true
+
+    return todo
+  })
 }, initialState)
