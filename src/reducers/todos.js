@@ -10,6 +10,8 @@ const initialState = [
 
 export default createReducer({
   'TODO_ADD': (state, action) => {
+    if (!action.text) return state
+
     return [
       {
         id: Date.now(),
